@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:plink="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+		xmlns:wsdlsoap11="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:wsdlsoap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap11enc="http://schemas.xmlsoap.org/soap/encoding/"
+		xmlns:soap11env="http://schemas.xmlsoap.org/soap/envelope/"
+		xmlns:soap12env="http://www.w3.org/2003/05/soap-envelope"
+		xmlns:soap12enc="http://www.w3.org/2003/05/soap-encoding"
+		xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+		xmlns:xop="http://www.w3.org/2004/08/xop/include"
+		xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+		xmlns:tns="services.identityManager.soap" targetNamespace="services.identityManager.soap" name="Application">
+	<wsdl:types>
+		<xs:schema targetNamespace="services.identityManager.soap" elementFormDefault="qualified">
+			<xs:complexType name="add_role_to_user">
+				<xs:sequence>
+					<xs:element name="userId" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="roleId" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="add_role_to_userResponse">
+				<xs:sequence>
+					<xs:element name="add_role_to_userResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="authorization">
+				<xs:sequence>
+					<xs:element name="jwtToVerify" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="authorizationResponse">
+				<xs:sequence>
+					<xs:element name="authorizationResult" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="create_user">
+				<xs:sequence>
+					<xs:element name="username" type="xs:string" minOccurs="0" nillable="true"/>
+					<xs:element name="password" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="create_userResponse">
+				<xs:sequence>
+					<xs:element name="create_userResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="delete_role_from_user">
+				<xs:sequence>
+					<xs:element name="userId" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="roleId" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="delete_role_from_userResponse">
+				<xs:sequence>
+					<xs:element name="delete_role_from_userResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="delete_user">
+				<xs:sequence>
+					<xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="delete_userResponse">
+				<xs:sequence>
+					<xs:element name="delete_userResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_role">
+				<xs:sequence>
+					<xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_roleResponse">
+				<xs:sequence>
+					<xs:element name="get_roleResult" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_roles">
+				<xs:sequence>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_rolesResponse">
+				<xs:sequence>
+					<xs:element name="get_rolesResult" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_user">
+				<xs:sequence>
+					<xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_userResponse">
+				<xs:sequence>
+					<xs:element name="get_userResult" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_users">
+				<xs:sequence>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="get_usersResponse">
+				<xs:sequence>
+					<xs:element name="get_usersResult" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="login">
+				<xs:sequence>
+					<xs:element name="username" type="xs:string" minOccurs="0" nillable="true"/>
+					<xs:element name="password" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="loginResponse">
+				<xs:sequence>
+					<xs:element name="loginResult" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="logout">
+				<xs:sequence>
+					<xs:element name="jwtToVerify" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="logoutResponse">
+				<xs:sequence>
+					<xs:element name="logoutResult" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="update_user">
+				<xs:sequence>
+					<xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="username" type="xs:string" minOccurs="0" nillable="true"/>
+					<xs:element name="password" type="xs:string" minOccurs="0" nillable="true"/>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="update_userResponse">
+				<xs:sequence>
+					<xs:element name="update_userResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="update_user_name">
+				<xs:sequence>
+					<xs:element name="id" type="xs:integer" minOccurs="0" nillable="true"/>
+					<xs:element name="username" type="xs:string" minOccurs="0" nillable="true"/>
+					<xs:element name="token" type="xs:string" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="update_user_nameResponse">
+				<xs:sequence>
+					<xs:element name="update_user_nameResult" type="xs:boolean" minOccurs="0" nillable="true"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="add_role_to_user" type="tns:add_role_to_user"/>
+			<xs:element name="add_role_to_userResponse" type="tns:add_role_to_userResponse"/>
+			<xs:element name="authorization" type="tns:authorization"/>
+			<xs:element name="authorizationResponse" type="tns:authorizationResponse"/>
+			<xs:element name="create_user" type="tns:create_user"/>
+			<xs:element name="create_userResponse" type="tns:create_userResponse"/>
+			<xs:element name="delete_role_from_user" type="tns:delete_role_from_user"/>
+			<xs:element name="delete_role_from_userResponse" type="tns:delete_role_from_userResponse"/>
+			<xs:element name="delete_user" type="tns:delete_user"/>
+			<xs:element name="delete_userResponse" type="tns:delete_userResponse"/>
+			<xs:element name="get_role" type="tns:get_role"/>
+			<xs:element name="get_roleResponse" type="tns:get_roleResponse"/>
+			<xs:element name="get_roles" type="tns:get_roles"/>
+			<xs:element name="get_rolesResponse" type="tns:get_rolesResponse"/>
+			<xs:element name="get_user" type="tns:get_user"/>
+			<xs:element name="get_userResponse" type="tns:get_userResponse"/>
+			<xs:element name="get_users" type="tns:get_users"/>
+			<xs:element name="get_usersResponse" type="tns:get_usersResponse"/>
+			<xs:element name="login" type="tns:login"/>
+			<xs:element name="loginResponse" type="tns:loginResponse"/>
+			<xs:element name="logout" type="tns:logout"/>
+			<xs:element name="logoutResponse" type="tns:logoutResponse"/>
+			<xs:element name="update_user" type="tns:update_user"/>
+			<xs:element name="update_userResponse" type="tns:update_userResponse"/>
+			<xs:element name="update_user_name" type="tns:update_user_name"/>
+			<xs:element name="update_user_nameResponse" type="tns:update_user_nameResponse"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="create_user">
+		<wsdl:part name="create_user" element="tns:create_user"/>
+	</wsdl:message>
+	<wsdl:message name="create_userResponse">
+		<wsdl:part name="create_userResponse" element="tns:create_userResponse"/>
+	</wsdl:message>
+	<wsdl:message name="login">
+		<wsdl:part name="login" element="tns:login"/>
+	</wsdl:message>
+	<wsdl:message name="loginResponse">
+		<wsdl:part name="loginResponse" element="tns:loginResponse"/>
+	</wsdl:message>
+	<wsdl:message name="authorization">
+		<wsdl:part name="authorization" element="tns:authorization"/>
+	</wsdl:message>
+	<wsdl:message name="authorizationResponse">
+		<wsdl:part name="authorizationResponse" element="tns:authorizationResponse"/>
+	</wsdl:message>
+	<wsdl:message name="logout">
+		<wsdl:part name="logout" element="tns:logout"/>
+	</wsdl:message>
+	<wsdl:message name="logoutResponse">
+		<wsdl:part name="logoutResponse" element="tns:logoutResponse"/>
+	</wsdl:message>
+	<wsdl:message name="get_user">
+		<wsdl:part name="get_user" element="tns:get_user"/>
+	</wsdl:message>
+	<wsdl:message name="get_userResponse">
+		<wsdl:part name="get_userResponse" element="tns:get_userResponse"/>
+	</wsdl:message>
+	<wsdl:message name="get_users">
+		<wsdl:part name="get_users" element="tns:get_users"/>
+	</wsdl:message>
+	<wsdl:message name="get_usersResponse">
+		<wsdl:part name="get_usersResponse" element="tns:get_usersResponse"/>
+	</wsdl:message>
+	<wsdl:message name="update_user">
+		<wsdl:part name="update_user" element="tns:update_user"/>
+	</wsdl:message>
+	<wsdl:message name="update_userResponse">
+		<wsdl:part name="update_userResponse" element="tns:update_userResponse"/>
+	</wsdl:message>
+	<wsdl:message name="update_user_name">
+		<wsdl:part name="update_user_name" element="tns:update_user_name"/>
+	</wsdl:message>
+	<wsdl:message name="update_user_nameResponse">
+		<wsdl:part name="update_user_nameResponse" element="tns:update_user_nameResponse"/>
+	</wsdl:message>
+	<wsdl:message name="delete_user">
+		<wsdl:part name="delete_user" element="tns:delete_user"/>
+	</wsdl:message>
+	<wsdl:message name="delete_userResponse">
+		<wsdl:part name="delete_userResponse" element="tns:delete_userResponse"/>
+	</wsdl:message>
+	<wsdl:message name="get_role">
+		<wsdl:part name="get_role" element="tns:get_role"/>
+	</wsdl:message>
+	<wsdl:message name="get_roleResponse">
+		<wsdl:part name="get_roleResponse" element="tns:get_roleResponse"/>
+	</wsdl:message>
+	<wsdl:message name="get_roles">
+		<wsdl:part name="get_roles" element="tns:get_roles"/>
+	</wsdl:message>
+	<wsdl:message name="get_rolesResponse">
+		<wsdl:part name="get_rolesResponse" element="tns:get_rolesResponse"/>
+	</wsdl:message>
+	<wsdl:message name="add_role_to_user">
+		<wsdl:part name="add_role_to_user" element="tns:add_role_to_user"/>
+	</wsdl:message>
+	<wsdl:message name="add_role_to_userResponse">
+		<wsdl:part name="add_role_to_userResponse" element="tns:add_role_to_userResponse"/>
+	</wsdl:message>
+	<wsdl:message name="delete_role_from_user">
+		<wsdl:part name="delete_role_from_user" element="tns:delete_role_from_user"/>
+	</wsdl:message>
+	<wsdl:message name="delete_role_from_userResponse">
+		<wsdl:part name="delete_role_from_userResponse" element="tns:delete_role_from_userResponse"/>
+	</wsdl:message>
+	<wsdl:service name="IDMService">
+		<wsdl:port name="Application" binding="tns:Application">
+			<wsdlsoap11:address location="http://localhost:8079/"/>
+		</wsdl:port>
+	</wsdl:service>
+	<wsdl:portType name="Application">
+		<wsdl:operation name="create_user" parameterOrder="create_user">
+			<wsdl:input name="create_user" message="tns:create_user"/>
+			<wsdl:output name="create_userResponse" message="tns:create_userResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="login" parameterOrder="login">
+			<wsdl:input name="login" message="tns:login"/>
+			<wsdl:output name="loginResponse" message="tns:loginResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="authorization" parameterOrder="authorization">
+			<wsdl:input name="authorization" message="tns:authorization"/>
+			<wsdl:output name="authorizationResponse" message="tns:authorizationResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="logout" parameterOrder="logout">
+			<wsdl:input name="logout" message="tns:logout"/>
+			<wsdl:output name="logoutResponse" message="tns:logoutResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="get_user" parameterOrder="get_user">
+			<wsdl:input name="get_user" message="tns:get_user"/>
+			<wsdl:output name="get_userResponse" message="tns:get_userResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="get_users" parameterOrder="get_users">
+			<wsdl:input name="get_users" message="tns:get_users"/>
+			<wsdl:output name="get_usersResponse" message="tns:get_usersResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="update_user" parameterOrder="update_user">
+			<wsdl:input name="update_user" message="tns:update_user"/>
+			<wsdl:output name="update_userResponse" message="tns:update_userResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="update_user_name" parameterOrder="update_user_name">
+			<wsdl:input name="update_user_name" message="tns:update_user_name"/>
+			<wsdl:output name="update_user_nameResponse" message="tns:update_user_nameResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="delete_user" parameterOrder="delete_user">
+			<wsdl:input name="delete_user" message="tns:delete_user"/>
+			<wsdl:output name="delete_userResponse" message="tns:delete_userResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="get_role" parameterOrder="get_role">
+			<wsdl:input name="get_role" message="tns:get_role"/>
+			<wsdl:output name="get_roleResponse" message="tns:get_roleResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="get_roles" parameterOrder="get_roles">
+			<wsdl:input name="get_roles" message="tns:get_roles"/>
+			<wsdl:output name="get_rolesResponse" message="tns:get_rolesResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="add_role_to_user" parameterOrder="add_role_to_user">
+			<wsdl:input name="add_role_to_user" message="tns:add_role_to_user"/>
+			<wsdl:output name="add_role_to_userResponse" message="tns:add_role_to_userResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="delete_role_from_user" parameterOrder="delete_role_from_user">
+			<wsdl:input name="delete_role_from_user" message="tns:delete_role_from_user"/>
+			<wsdl:output name="delete_role_from_userResponse" message="tns:delete_role_from_userResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="Application" type="tns:Application">
+		<wsdlsoap11:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="create_user">
+			<wsdlsoap11:operation soapAction="create_user" style="document"/>
+			<wsdl:input name="create_user">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="create_userResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="login">
+			<wsdlsoap11:operation soapAction="login" style="document"/>
+			<wsdl:input name="login">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="loginResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="authorization">
+			<wsdlsoap11:operation soapAction="authorization" style="document"/>
+			<wsdl:input name="authorization">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="authorizationResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="logout">
+			<wsdlsoap11:operation soapAction="logout" style="document"/>
+			<wsdl:input name="logout">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="logoutResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="get_user">
+			<wsdlsoap11:operation soapAction="get_user" style="document"/>
+			<wsdl:input name="get_user">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="get_userResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="get_users">
+			<wsdlsoap11:operation soapAction="get_users" style="document"/>
+			<wsdl:input name="get_users">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="get_usersResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="update_user">
+			<wsdlsoap11:operation soapAction="update_user" style="document"/>
+			<wsdl:input name="update_user">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="update_userResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="update_user_name">
+			<wsdlsoap11:operation soapAction="update_user_name" style="document"/>
+			<wsdl:input name="update_user_name">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="update_user_nameResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="delete_user">
+			<wsdlsoap11:operation soapAction="delete_user" style="document"/>
+			<wsdl:input name="delete_user">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="delete_userResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="get_role">
+			<wsdlsoap11:operation soapAction="get_role" style="document"/>
+			<wsdl:input name="get_role">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="get_roleResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="get_roles">
+			<wsdlsoap11:operation soapAction="get_roles" style="document"/>
+			<wsdl:input name="get_roles">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="get_rolesResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="add_role_to_user">
+			<wsdlsoap11:operation soapAction="add_role_to_user" style="document"/>
+			<wsdl:input name="add_role_to_user">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="add_role_to_userResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="delete_role_from_user">
+			<wsdlsoap11:operation soapAction="delete_role_from_user" style="document"/>
+			<wsdl:input name="delete_role_from_user">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="delete_role_from_userResponse">
+				<wsdlsoap11:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

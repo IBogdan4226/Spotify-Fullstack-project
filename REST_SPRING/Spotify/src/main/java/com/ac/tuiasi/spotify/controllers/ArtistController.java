@@ -1,0 +1,159 @@
+package com.ac.tuiasi.spotify.controllers;
+
+import com.ac.tuiasi.spotify.interfaces.IArtistService;
+import com.ac.tuiasi.spotify.model.Artist;
+import com.ac.tuiasi.spotify.soapPackage.Service.SoapService;
+import com.ac.tuiasi.spotify.specifications.ArtistWithName;
+import com.ac.tuiasi.spotify.specifications.ArtistWithStatus;
+import com.ac.tuiasi.spotify.utils.ArtistModelCreator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.github.fge.jsonpatch.JsonPatch;
+import com.github.fge.jsonpatch.JsonPatchException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.EntityNotFoundException;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
+@RestController
+@RequestMapping("/api/songcollection/artists")
+public class ArtistController {
+    @Autowired
+    private IArtistService service;
+    @Autowired
+    private ArtistModelCreator artistModel;
+    @Autowired
+    private SoapService soapService;
+
+    @GetMapping("")
+    public ResponseEntity<?> listAll(
+            @RequestParam(defaultValue = "0", required = false) Integer page,
+            @RequestParam(defaultValue = "10", required = false) Integer pageSize,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String match,
+            @RequestParam(required = false) Boolean status
+    ) {
+        Boolean initialStatus = status;
+        if (status == null) {
+            status = false;
+        }
+        if (pageSize != null && pageSize < 1) {
+            return new ResponseEntity<>("Invalid page size", HttpStatus.NOT_ACCEPTABLE);
+        }
+        Specification<Artist> spec = Specification.where(new ArtistWithName(name, match).and(new ArtistWithStatus(status)));
+        PageRequest paging = PageRequest.of(page, pageSize);
+        Page<Artist> artists = service.listAllwSpec(spec, paging);
+        if (artists.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        artists.stream().map(artist -> artistModel.toModel(artist, page, pageSize, name, match, initialStatus)).collect(Collectors.toList());
+        CollectionModel<Artist> model = CollectionModel.of(artists);
+        model.add(linkTo(methodOn(ArtistController.class).listAll(page, pageSize, name, match, status)).withSelfRel());
+        model.add(linkTo(methodOn(ArtistController.class).listAll(page + 1, pageSize, name, match, status)).withRel("Next page"));
+        if (page != null && page != 0) {
+            model.add(linkTo(methodOn(ArtistController.class).listAll(page - 1, pageSize, name, match, status)).withRel("Previous page"));
+        }
+
+        return new ResponseEntity<>(model, HttpStatus.OK);
+    }
+
+    @GetMapping("/{uuid}")
+    public ResponseEntity<?> listOne(@PathVariable("uuid") Integer uuid) {
+        try {
+            Artist artist = service.get(uuid);
+            Artist model = artistModel.toModel(artist);
+            return new ResponseEntity<>(model, HttpStatus.OK);
+        } catch (NoSuchElementException ex) {
+            return new ResponseEntity<>("No element found by uuid " + uuid, HttpStatus.NOT_FOUND);
+        }
+
+
+    }
+
+    @PutMapping("/{uuid}")
+    public ResponseEntity<?> put(@RequestBody Artist artist, @PathVariable("uuid") Integer uuid, @RequestHeader(name = "Authorization", required = false) String jwtToken) {
+        if (jwtToken == null || !jwtToken.contains("Bearer")) {
+            return new ResponseEntity<>("Authorization Header empty", HttpStatus.UNAUTHORIZED);
+        }
+        try {
+            if (!soapService.validateTokenCM(jwtToken)) {
+                return new ResponseEntity<>("Authorization Header invalid", HttpStatus.UNAUTHORIZED);
+            }
+        } catch (Exception err) {
+            return new ResponseEntity<>("Authorization is not available at the moment", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        try {
+            Artist savedArtist = service.get(uuid);
+            savedArtist.setName(artist.getName());
+            savedArtist.setActive(artist.getActive());
+            service.save(savedArtist);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (NoSuchElementException ex) {
+            artist.setUuid(uuid);
+            service.save(artist);
+            Artist model = artistModel.toModel(artist);
+            return new ResponseEntity<>(model, HttpStatus.CREATED);
+        } catch (DataAccessException ex) {
+            return new ResponseEntity<>("Not acceptable", HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+
+    @PatchMapping(path = "/{uuid}")
+    public ResponseEntity<?> patchSong(@RequestBody JsonPatch patch, @PathVariable("uuid") Integer uuid, @RequestHeader(name = "Authorization", required = false) String jwtToken) {
+        if (jwtToken == null || !jwtToken.contains("Bearer")) {
+            return new ResponseEntity<>("Authorization Header empty", HttpStatus.UNAUTHORIZED);
+        }
+        try {
+            if (!soapService.validateTokenCM(jwtToken)) {
+                return new ResponseEntity<>("Authorization Header invalid", HttpStatus.UNAUTHORIZED);
+            }
+        } catch (Exception err) {
+            return new ResponseEntity<>("Authorization is not available at the moment", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        try {
+            Artist artistPatch = service.patch(uuid, patch);
+            Artist model = artistModel.toModel(artistPatch);
+            return new ResponseEntity<>(model, HttpStatus.OK);
+        } catch (JsonPatchException | JsonProcessingException e) {
+            return new ResponseEntity<>("Not acceptable", HttpStatus.NOT_ACCEPTABLE);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>("No element found by id " + uuid, HttpStatus.NOT_FOUND);
+        } catch (DataAccessException ex) {
+            return new ResponseEntity<>("Conflict with previous data", HttpStatus.CONFLICT);
+        }
+    }
+
+    @DeleteMapping("/{uuid}")
+    public ResponseEntity<?> delete(@PathVariable("uuid") Integer uuid, @RequestHeader(name = "Authorization", required = false) String jwtToken) {
+        if (jwtToken == null || !jwtToken.contains("Bearer")) {
+            return new ResponseEntity<>("Authorization Header empty", HttpStatus.UNAUTHORIZED);
+        }
+        try {
+            if (!soapService.validateTokenCM(jwtToken)) {
+                return new ResponseEntity<>("Authorization Header invalid", HttpStatus.UNAUTHORIZED);
+            }
+        } catch (Exception err) {
+            return new ResponseEntity<>("Authorization is not available at the moment", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        try {
+            Artist deletedArtist = service.get(uuid);
+            Artist model = artistModel.toModel(deletedArtist);
+            service.delete(uuid);
+            return new ResponseEntity<Artist>(model, HttpStatus.OK);
+        } catch (NoSuchElementException ex) {
+            return new ResponseEntity<>("No element found by id " + uuid, HttpStatus.NOT_FOUND);
+        }
+    }
+}

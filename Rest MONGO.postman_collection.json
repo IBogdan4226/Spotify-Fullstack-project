@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "6b4cd422-1802-403c-a644-db6901860510",
+		"name": "Rest MONGO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create playlist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"creatorId\":\"20\",\r\n    \"playlistName\":\"MyPlaylist\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create playlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"creatorId\":\"20\",\r\n    \"playlistName\":\"MyPlaylist\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:10:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"63cc389eda92cc3a47de4875\",\n    \"creatorId\": 20,\n    \"playlistName\": \"MyPlaylist\",\n    \"visible\": true,\n    \"songs\": null,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8081/api/playlist/63cc389eda92cc3a47de4875\"\n        },\n        \"collection\": {\n            \"href\": \"http://localhost:8081/api/playlist/\"\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8081/api/playlist/63cc389eda92cc3a47de4875\",\n            \"type\": \"DELETE\"\n        },\n        \"append-songs\": {\n            \"href\": \"http://localhost:8081/api/playlist/append/63cc389eda92cc3a47de4875\",\n            \"type\": \"POST\"\n        },\n        \"remove-songs\": {\n            \"href\": \"http://localhost:8081/api/playlist/remove/63cc389eda92cc3a47de4875\",\n            \"type\": \"POST\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Add song to playlist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"songs\":[14,15]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist/append/63a9c9538abaad46fc459e71",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist",
+						"append",
+						"63a9c9538abaad46fc459e71"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Append songs to playlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"songs\":[14,15]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/playlist/append/63a9c9538abaad46fc459e71",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"playlist",
+								"append",
+								"63a9c9538abaad46fc459e71"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:08:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"63a9c9538abaad46fc459e71\",\n    \"creatorId\": 41,\n    \"playlistName\": \"TRAPANELE\",\n    \"visible\": true,\n    \"songs\": [\n        {\n            \"id\": 8,\n            \"name\": \"pa\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/8\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"postwithoutparent\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/9\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"postwithparent\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/11\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"album\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/12\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"papa\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/5\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"manele\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/6\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"updated\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/7\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"TestareInAlbum\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/14\"\n        },\n        {\n            \"id\": 15,\n            \"name\": \"TestareInAlbum\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/15\"\n        }\n    ],\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8081/api/playlist/63a9c9538abaad46fc459e71\"\n        },\n        \"collection\": {\n            \"href\": \"http://localhost:8081/api/playlist/\"\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8081/api/playlist/63a9c9538abaad46fc459e71\",\n            \"type\": \"DELETE\"\n        },\n        \"append-songs\": {\n            \"href\": \"http://localhost:8081/api/playlist/append/63a9c9538abaad46fc459e71\",\n            \"type\": \"POST\"\n        },\n        \"remove-songs\": {\n            \"href\": \"http://localhost:8081/api/playlist/remove/63a9c9538abaad46fc459e71\",\n            \"type\": \"POST\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "See all playlist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/playlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "See all playlist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/playlist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"playlist"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:07:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_embedded\": {\n        \"playlistDTOList\": [\n            {\n                \"id\": \"638380f1a667944d1007e77b\",\n                \"creatorId\": null,\n                \"playlistName\": \"dap\",\n                \"visible\": true,\n                \"songs\": [\n                    {\n                        \"id\": 7,\n                        \"name\": \"updated\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/7\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/638380f1a667944d1007e77b\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/638380f1a667944d1007e77b\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/638380f1a667944d1007e77b\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/638380f1a667944d1007e77b\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"639f716181724d79c2047165\",\n                \"creatorId\": null,\n                \"playlistName\": \"epure\",\n                \"visible\": true,\n                \"songs\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/639f716181724d79c2047165\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/639f716181724d79c2047165\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/639f716181724d79c2047165\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/639f716181724d79c2047165\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"639f71dca477cc2b66d5f50c\",\n                \"creatorId\": null,\n                \"playlistName\": \"epure\",\n                \"visible\": true,\n                \"songs\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/639f71dca477cc2b66d5f50c\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/639f71dca477cc2b66d5f50c\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/639f71dca477cc2b66d5f50c\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/639f71dca477cc2b66d5f50c\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63a9c9538abaad46fc459e71\",\n                \"creatorId\": 41,\n                \"playlistName\": \"TRAPANELE\",\n                \"visible\": true,\n                \"songs\": [\n                    {\n                        \"id\": 8,\n                        \"name\": \"pa\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/8\"\n                    },\n                    {\n                        \"id\": 9,\n                        \"name\": \"postwithoutparent\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/9\"\n                    },\n                    {\n                        \"id\": 11,\n                        \"name\": \"postwithparent\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/11\"\n                    },\n                    {\n                        \"id\": 12,\n                        \"name\": \"album\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/12\"\n                    },\n                    {\n                        \"id\": 5,\n                        \"name\": \"papa\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/5\"\n                    },\n                    {\n                        \"id\": 6,\n                        \"name\": \"manele\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/6\"\n                    },\n                    {\n                        \"id\": 7,\n                        \"name\": \"updated\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/7\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9c9538abaad46fc459e71\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9c9538abaad46fc459e71\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63a9c9538abaad46fc459e71\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63a9c9538abaad46fc459e71\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63a9cb9f8abaad46fc459e72\",\n                \"creatorId\": 41,\n                \"playlistName\": \"Alibaba\",\n                \"visible\": true,\n                \"songs\": [\n                    {\n                        \"id\": 6,\n                        \"name\": \"manele\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/6\"\n                    },\n                    {\n                        \"id\": 15,\n                        \"name\": \"Adaugat now\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/15\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9cb9f8abaad46fc459e72\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9cb9f8abaad46fc459e72\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63a9cb9f8abaad46fc459e72\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63a9cb9f8abaad46fc459e72\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63a9cc4c8abaad46fc459e73\",\n                \"creatorId\": 41,\n                \"playlistName\": \"Alibaba\",\n                \"visible\": true,\n                \"songs\": [\n                    {\n                        \"id\": 7,\n                        \"name\": \"updated\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/7\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9cc4c8abaad46fc459e73\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9cc4c8abaad46fc459e73\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63a9cc4c8abaad46fc459e73\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63a9cc4c8abaad46fc459e73\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63a9cc4d8abaad46fc459e74\",\n                \"creatorId\": 41,\n                \"playlistName\": \"Alibaba\",\n                \"visible\": true,\n                \"songs\": [\n                    {\n                        \"id\": 7,\n                        \"name\": \"updated\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/7\"\n                    },\n                    {\n                        \"id\": 13,\n                        \"name\": \"Adaugat now\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/13\"\n                    },\n                    {\n                        \"id\": 22,\n                        \"name\": \"AlbumuInternfata\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/22\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9cc4d8abaad46fc459e74\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63a9cc4d8abaad46fc459e74\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63a9cc4d8abaad46fc459e74\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63a9cc4d8abaad46fc459e74\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63cbe6acbe8a2519db48e05d\",\n                \"creatorId\": 6,\n                \"playlistName\": \"Playlist\",\n                \"visible\": true,\n                \"songs\": [\n                    {\n                        \"id\": 3,\n                        \"name\": \"woah\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/3\"\n                    },\n                    {\n                        \"id\": 4,\n                        \"name\": \"Melodie\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/4\"\n                    },\n                    {\n                        \"id\": 5,\n                        \"name\": \"album\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/5\"\n                    },\n                    {\n                        \"id\": 9,\n                        \"name\": \"SongInsideAlbum1\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/9\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbe6acbe8a2519db48e05d\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbe6acbe8a2519db48e05d\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63cbe6acbe8a2519db48e05d\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63cbe6acbe8a2519db48e05d\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63cbe7d0be8a2519db48e060\",\n                \"creatorId\": 7,\n                \"playlistName\": \"Playlist2\",\n                \"visible\": false,\n                \"songs\": [\n                    {\n                        \"id\": 7,\n                        \"name\": \"Shrouded Destiny\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/7\"\n                    },\n                    {\n                        \"id\": 5,\n                        \"name\": \"album\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/5\"\n                    },\n                    {\n                        \"id\": 8,\n                        \"name\": \"Luke\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/8\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbe7d0be8a2519db48e060\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbe7d0be8a2519db48e060\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63cbe7d0be8a2519db48e060\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63cbe7d0be8a2519db48e060\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63cbe8d0be8a2519db48e061\",\n                \"creatorId\": 3,\n                \"playlistName\": \"Playlist2\",\n                \"visible\": false,\n                \"songs\": [\n                    {\n                        \"id\": 4,\n                        \"name\": \"Melodie\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/4\"\n                    },\n                    {\n                        \"id\": 6,\n                        \"name\": \"AlbumReal\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/6\"\n                    },\n                    {\n                        \"id\": 9,\n                        \"name\": \"SongInsideAlbum1\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/9\"\n                    },\n                    {\n                        \"id\": 3,\n                        \"name\": \"woah\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/3\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbe8d0be8a2519db48e061\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbe8d0be8a2519db48e061\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63cbe8d0be8a2519db48e061\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63cbe8d0be8a2519db48e061\",\n                        \"type\": \"POST\"\n                    }\n                }\n            },\n            {\n                \"id\": \"63cbea0cbe8a2519db48e063\",\n                \"creatorId\": 8,\n                \"playlistName\": \"Playlist1\",\n                \"visible\": true,\n                \"songs\": [\n                    {\n                        \"id\": 3,\n                        \"name\": \"woah\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/3\"\n                    },\n                    {\n                        \"id\": 4,\n                        \"name\": \"Melodie\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/4\"\n                    },\n                    {\n                        \"id\": 5,\n                        \"name\": \"album\",\n                        \"self\": \"http://localhost:8080/api/songcollection/songs/5\"\n                    }\n                ],\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbea0cbe8a2519db48e063\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8081/api/playlist/\"\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8081/api/playlist/63cbea0cbe8a2519db48e063\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/63cbea0cbe8a2519db48e063\",\n                        \"type\": \"POST\"\n                    },\n                    \"remove-songs\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/63cbea0cbe8a2519db48e063\",\n                        \"type\": \"POST\"\n                    }\n                }\n            }\n        ]\n    },\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8081/api/playlist/\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Remove songs from playlist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"songs\":[14,15]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/playlist/remove/63a9c9538abaad46fc459e71",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"playlist",
+						"remove",
+						"63a9c9538abaad46fc459e71"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Remove songs from playlist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"songs\":[14,15]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/playlist/remove/63a9c9538abaad46fc459e71",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"playlist",
+								"remove",
+								"63a9c9538abaad46fc459e71"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:09:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"63a9c9538abaad46fc459e71\",\n    \"creatorId\": 41,\n    \"playlistName\": \"TRAPANELE\",\n    \"visible\": true,\n    \"songs\": [\n        {\n            \"id\": 8,\n            \"name\": \"pa\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/8\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"postwithoutparent\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/9\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"postwithparent\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/11\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"album\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/12\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"papa\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/5\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"manele\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/6\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"updated\",\n            \"self\": \"http://localhost:8080/api/songcollection/songs/7\"\n        }\n    ],\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8081/api/playlist/63a9c9538abaad46fc459e71\"\n        },\n        \"collection\": {\n            \"href\": \"http://localhost:8081/api/playlist/\"\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8081/api/playlist/63a9c9538abaad46fc459e71\",\n            \"type\": \"DELETE\"\n        },\n        \"append-songs\": {\n            \"href\": \"http://localhost:8081/api/playlist/append/63a9c9538abaad46fc459e71\",\n            \"type\": \"POST\"\n        },\n        \"remove-songs\": {\n            \"href\": \"http://localhost:8081/api/playlist/remove/63a9c9538abaad46fc459e71\",\n            \"type\": \"POST\"\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}

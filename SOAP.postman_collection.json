@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "d98a5eba-3ee4-430a-a69c-9a20b47b6e7d",
+		"name": "SOAP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/html",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:create_user xmlns:ns1='services.identityManager.soap'>\n      <ns1:username>test</ns1:username>\n      <ns1:password>test</ns1:password>\n    </ns1:create_user>\n  </s11:Body>\n</s11:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8079/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/html",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:login xmlns:ns1='services.identityManager.soap'>\n      <ns1:username>test</ns1:username>\n      <ns1:password>test</ns1:password>\n    </ns1:login>\n  </s11:Body>\n</s11:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8079/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:login xmlns:ns1='services.identityManager.soap'>\n      <ns1:username>admin</ns1:username>\n      <ns1:password>admin</ns1:password>\n    </ns1:login>\n  </s11:Body>\n</s11:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8079/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8079",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 18:53:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "468"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version='1.0' encoding='UTF-8'?>\n<soap11env:Envelope xmlns:soap11env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"services.identityManager.soap\">\n    <soap11env:Body>\n        <tns:loginResponse>\n            <tns:loginResult>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4</tns:loginResult>\n        </tns:loginResponse>\n    </soap11env:Body>\n</soap11env:Envelope>"
+				}
+			]
+		},
+		{
+			"name": "Authorize",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/html",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:authorization xmlns:ns1='services.identityManager.soap'>\n      <ns1:jwtToVerify>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3MTM4MTczNywianRpIjoxLCJyb2xlIjo0fQ.eImEndF9kgoit689OiPJUXCRvEtQgjHI7rgrz5ToFqY</ns1:jwtToVerify>\n    </ns1:authorization>\n  </s11:Body>\n</s11:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8079/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Authorize",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:authorization xmlns:ns1='services.identityManager.soap'>\n      <ns1:jwtToVerify>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4</ns1:jwtToVerify>\n    </ns1:authorization>\n  </s11:Body>\n</s11:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8079/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8079",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:11:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "324"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version='1.0' encoding='UTF-8'?>\n<soap11env:Envelope xmlns:soap11env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"services.identityManager.soap\">\n    <soap11env:Body>\n        <tns:authorizationResponse>\n            <tns:authorizationResult>1-4</tns:authorizationResult>\n        </tns:authorizationResponse>\n    </soap11env:Body>\n</soap11env:Envelope>"
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/html",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:logout xmlns:ns1='services.identityManager.soap'>\n      <ns1:jwtToVerify></ns1:jwtToVerify>\n    </ns1:logout>\n  </s11:Body>\n</s11:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8079/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Logout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:logout xmlns:ns1='services.identityManager.soap'>\n      <ns1:jwtToVerify>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4</ns1:jwtToVerify>\n    </ns1:logout>\n  </s11:Body>\n</s11:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8079/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8079",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:12:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "302"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version='1.0' encoding='UTF-8'?>\n<soap11env:Envelope xmlns:soap11env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"services.identityManager.soap\">\n    <soap11env:Body>\n        <tns:logoutResponse>\n            <tns:logoutResult>Invalidat</tns:logoutResult>\n        </tns:logoutResponse>\n    </soap11env:Body>\n</soap11env:Envelope>"
+				}
+			]
+		},
+		{
+			"name": "Add role to user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/html",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:create_user xmlns:ns1='services.identityManager.soap'>\n      <ns1:username>test</ns1:username>\n      <ns1:password>test</ns1:password>\n    </ns1:create_user>\n  </s11:Body>\n</s11:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8079/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8079",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add role to user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/html",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<s11:Envelope xmlns:s11='http://schemas.xmlsoap.org/soap/envelope/'>\n  <s11:Body>\n    <ns1:add_role_to_user xmlns:ns1='services.identityManager.soap'>\n      <ns1:userId>3</ns1:userId>\n      <ns1:roleId>4</ns1:roleId>\n      <ns1:token>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMzMDIwMCwianRpIjoxLCJyb2xlIjo0fQ.GvjO_6nA57TVC1ZK1fVSsDpO2ccgazaXnTV9EYhiRhQ</ns1:token>\n    </ns1:add_role_to_user>\n  </s11:Body>\n</s11:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8079/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8079",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:13:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/xml; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "337"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version='1.0' encoding='UTF-8'?>\n<soap11env:Envelope xmlns:soap11env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns=\"services.identityManager.soap\">\n    <soap11env:Body>\n        <tns:add_role_to_userResponse>\n            <tns:add_role_to_userResult>True</tns:add_role_to_userResult>\n        </tns:add_role_to_userResponse>\n    </soap11env:Body>\n</soap11env:Envelope>"
+				}
+			]
+		}
+	]
+}

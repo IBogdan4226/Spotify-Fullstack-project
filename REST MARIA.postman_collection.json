@@ -1,0 +1,917 @@
+{
+	"info": {
+		"_postman_id": "385c6e04-bff6-4e30-85c4-908dd8f196fb",
+		"name": "REST MARIA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Put artist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"ArtistExample\",\r\n    \"active\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/songcollection/artists/55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songcollection",
+						"artists",
+						"55"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Put artist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"ArtistExample\",\r\n    \"active\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/artists/55",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"artists",
+								"55"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 18:59:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uuid\": 55,\n    \"name\": \"ArtistExample\",\n    \"active\": true,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artists/55\"\n        },\n        \"collection\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artists/{?page,pageSize,name,match,status}\",\n            \"templated\": true\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artists/55\",\n            \"type\": \"DELETE\"\n        },\n        \"all-releases\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artist/55/songs{?page,pageSize,type}\",\n            \"type\": \"GET\",\n            \"templated\": true\n        },\n        \"albums\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artist/55/songs?type=album{&page,pageSize}\",\n            \"type\": \"GET\",\n            \"templated\": true\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete song",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songcollection/songs/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songcollection",
+						"songs",
+						"21"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete song",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/songs/21",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"songs",
+								"21"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 18:58:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 21,\n    \"name\": \"DondaUpdated\",\n    \"genre\": \"rap\",\n    \"year\": \"2022\",\n    \"type\": \"album\",\n    \"parent\": null,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/21\"\n        },\n        \"collection\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n            \"templated\": true\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/21\",\n            \"type\": \"DELETE\"\n        },\n        \"append-to-playlist\": {\n            \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n            \"type\": \"POST\",\n            \"templated\": true\n        },\n        \"remove-from-playlist\": {\n            \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n            \"type\": \"POST\",\n            \"templated\": true\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get songs with search filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMwNDQ1OCwianRpIjoxLCJyb2xlIjo0fQ.4mLkz1DLMbED5b-wvlESh82ciL5kLJfgOsxB3Mh7FGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Bogdan\",\r\n    \"active\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/songcollection/songs?page=0&pageSize=10&type=song",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songcollection",
+						"songs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "type",
+							"value": "song"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get songs with search filters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Bogdan\",\r\n    \"active\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/songs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"songs"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 18:47:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_embedded\": {\n        \"songList\": [\n            {\n                \"id\": 3,\n                \"name\": \"woah\",\n                \"genre\": \"rap\",\n                \"year\": \"2022\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/3\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/3\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Melodie\",\n                \"genre\": \"rap\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/4\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/4\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 5,\n                \"name\": \"album\",\n                \"genre\": \"rap\",\n                \"year\": \"1999\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/5\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/5\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 6,\n                \"name\": \"AlbumReal\",\n                \"genre\": \"rap\",\n                \"year\": \"2000\",\n                \"type\": \"album\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Shrouded Destiny\",\n                \"genre\": \"rap\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/7\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/7\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Luke\",\n                \"genre\": \"pop\",\n                \"year\": \"1252\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/8\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/8\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 9,\n                \"name\": \"SongInsideAlbum1\",\n                \"genre\": \"rap\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/9\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/9\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 10,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/10\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/10\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 11,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/11\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/11\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 12,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/12\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/12\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            }\n        ]\n    },\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/?page=0&pageSize=10{&name,match,genre,type,year,parent}\",\n            \"templated\": true\n        },\n        \"Next page\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/?page=1&pageSize=10{&name,match,genre,type,year,parent}\",\n            \"templated\": true\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get song with id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMwNDQ1OCwianRpIjoxLCJyb2xlIjo0fQ.4mLkz1DLMbED5b-wvlESh82ciL5kLJfgOsxB3Mh7FGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Bogdan\",\r\n    \"active\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/songcollection/songs?page=0&pageSize=10&type=song",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songcollection",
+						"songs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "type",
+							"value": "song"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get song with id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Bogdan\",\r\n    \"active\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/songs/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"songs",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 18:53:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"name\": \"album\",\n    \"genre\": \"rap\",\n    \"year\": \"1999\",\n    \"type\": \"song\",\n    \"parent\": null,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/5\"\n        },\n        \"collection\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n            \"templated\": true\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/5\",\n            \"type\": \"DELETE\"\n        },\n        \"append-to-playlist\": {\n            \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n            \"type\": \"POST\",\n            \"templated\": true\n        },\n        \"remove-from-playlist\": {\n            \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n            \"type\": \"POST\",\n            \"templated\": true\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Add song",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Donda\",\r\n    \"genre\":\"rap\",\r\n    \"year\":2022,\r\n    \"type\":\"album\",\r\n    \"parent\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/songcollection/songs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songcollection",
+						"songs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add song",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Donda\",\r\n    \"genre\":\"rap\",\r\n    \"year\":2022,\r\n    \"type\":\"album\",\r\n    \"parent\":null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/songs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"songs"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 18:57:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 22,\n    \"name\": \"Donda\",\n    \"genre\": \"rap\",\n    \"year\": \"2022\",\n    \"type\": \"album\",\n    \"parent\": null,\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/22\"\n        },\n        \"collection\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n            \"templated\": true\n        },\n        \"delete\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/22\",\n            \"type\": \"DELETE\"\n        },\n        \"append-to-playlist\": {\n            \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n            \"type\": \"POST\",\n            \"templated\": true\n        },\n        \"remove-from-playlist\": {\n            \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n            \"type\": \"POST\",\n            \"templated\": true\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "All songs from artist",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/api/songcollection/artist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"api",
+						"songcollection",
+						"artist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "All songs from artist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/artist/2/songs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"artist",
+								"2",
+								"songs"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:02:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_embedded\": {\n        \"songList\": [\n            {\n                \"id\": 3,\n                \"name\": \"woah\",\n                \"genre\": \"rap\",\n                \"year\": \"2022\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/3\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/3\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Melodie\",\n                \"genre\": \"rap\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/4\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/4\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 5,\n                \"name\": \"album\",\n                \"genre\": \"rap\",\n                \"year\": \"1999\",\n                \"type\": \"song\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/5\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/5\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 6,\n                \"name\": \"AlbumReal\",\n                \"genre\": \"rap\",\n                \"year\": \"2000\",\n                \"type\": \"album\",\n                \"parent\": null,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 9,\n                \"name\": \"SongInsideAlbum1\",\n                \"genre\": \"rap\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/9\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/9\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 10,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/10\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/10\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 11,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/11\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/11\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 12,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/12\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/12\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 13,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/13\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/13\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            },\n            {\n                \"id\": 14,\n                \"name\": \"TestareInAlbum\",\n                \"genre\": \"pop\",\n                \"year\": \"2000\",\n                \"type\": \"song\",\n                \"parent\": 6,\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/14\"\n                    },\n                    \"collection\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/{?page,pageSize,name,match,genre,type,year,parent}\",\n                        \"templated\": true\n                    },\n                    \"delete\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/14\",\n                        \"type\": \"DELETE\"\n                    },\n                    \"album\": {\n                        \"href\": \"http://localhost:8080/api/songcollection/songs/6\",\n                        \"type\": \"GET\"\n                    },\n                    \"append-to-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/append/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    },\n                    \"remove-from-playlist\": {\n                        \"href\": \"http://localhost:8081/api/playlist/remove/{playlistID}\",\n                        \"type\": \"POST\",\n                        \"templated\": true\n                    }\n                }\n            }\n        ]\n    },\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artist/2/songs?page=0&pageSize=10{&type}\",\n            \"templated\": true\n        },\n        \"Next page\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artist/2/songs?page=1&pageSize=10{&type}\",\n            \"templated\": true\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Insert song to artist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\":2,\r\n    \"id\":15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/api/songcollection/artist/song",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"api",
+						"songcollection",
+						"artist",
+						"song"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Insert song to artist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uuid\":2,\r\n    \"id\":15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/artist/song",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"artist",
+								"song"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:05:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uuid\": 2,\n    \"id\": 15,\n    \"_links\": {\n        \"delete\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artist/2/song/15\",\n            \"type\": \"DELETE\"\n        },\n        \"artist\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artists/2\",\n            \"type\": \"GET\"\n        },\n        \"song\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/15\",\n            \"type\": \"GET\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete song from artist",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAiLCJzdWIiOjEsImV4cCI6MTY3NDMyOTAyMiwianRpIjoxLCJyb2xlIjo0fQ.fCd_qjteTHlYGTH9MNZe86KoVXabqpbe8blJMhCUOW4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\":2,\r\n    \"id\":15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/songcollection/artist/2/song/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songcollection",
+						"artist",
+						"2",
+						"song",
+						"15"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete song from artist",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uuid\":2,\r\n    \"id\":15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/songcollection/artist/2/song/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"songcollection",
+								"artist",
+								"2",
+								"song",
+								"15"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/hal+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 21 Jan 2023 19:06:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"uuid\": 2,\n    \"id\": 15,\n    \"_links\": {\n        \"delete\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artist/2/song/15\",\n            \"type\": \"DELETE\"\n        },\n        \"artist\": {\n            \"href\": \"http://localhost:8080/api/songcollection/artists/2\",\n            \"type\": \"GET\"\n        },\n        \"song\": {\n            \"href\": \"http://localhost:8080/api/songcollection/songs/15\",\n            \"type\": \"GET\"\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}
